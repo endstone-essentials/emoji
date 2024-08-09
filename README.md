@@ -12,8 +12,9 @@ EmojiNK in endstone!
 
 ## Install
 
-- Download .whl file from [release](https://github.com/endstone-essentials/emoji/releases)
-- Put it into `plugins` folder
+- Download .whl file and resources pack from [release](https://github.com/endstone-essentials/emoji/releases)
+- Put .whl file into `plugins` folder
+- Install resources pack into your server
 - Restart the server, enjoy!
 
 ## Requirement
