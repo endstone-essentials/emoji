@@ -1,7 +1,7 @@
 from endstone import Player
-from endstone.form import ActionForm
 from endstone.command import Command, CommandSender
 from endstone.event import PlayerChatEvent, event_handler
+from endstone.form import ActionForm
 from endstone.plugin import Plugin
 
 from endstone_emoji.emoji_api import EmojiAPI
@@ -42,7 +42,9 @@ class EmojiPlugin(Plugin):
         self.emoji_api = EmojiAPI(self)
         self.register_events(self)
 
-    def on_command(self, sender: CommandSender, command: Command, args: list[str]) -> bool:
+    def on_command(
+        self, sender: CommandSender, command: Command, args: list[str]
+    ) -> bool:
         if not isinstance(sender, Player):
             sender.send_error_message("This command can only be executed by player")
             return False
@@ -53,7 +55,9 @@ class EmojiPlugin(Plugin):
         for k, v in self.emoji_api.emoji_names.items():
             form.add_button(
                 text=f"§f{v}§8\n{k}",
-                on_click=lambda player: self.emoji_api.send_emoji(player, k)
+                on_click=lambda player, emoji_id=k: self.emoji_api.send_emoji(
+                    player, emoji_id
+                ),
             )
 
         sender.send_form(form)
@@ -70,7 +74,4 @@ class EmojiPlugin(Plugin):
         if emoji_id is None:
             return
 
-        self.emoji_api.send_emoji(
-            event.player,
-            emoji_id
-        )
+        self.emoji_api.send_emoji(event.player, emoji_id)
