@@ -9,6 +9,10 @@ dependencies = []
 authors = [
     { name = "daoge_cmd", email = "3523206925@qq.com" }
 ]
+maintainers = [
+    { name = "daoge_cmd", email = "3523206925@qq.com" },
+    { name = "Vincent", email = "magicdroidx@gmail.com" }
+]
 description = "EmojiNK in endstone"
 readme = "README.md"
 license = { file = "LICENSE" }
