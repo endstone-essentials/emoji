@@ -2,19 +2,20 @@
 
 EmojiNK in endstone!
 
-![img.png](img.png)
+![Plugin Menu](assets/menu.png)
 
-![img_1.png](img_1.png)
+![Emoji.png](assets/emoji.png)
 
-## Feature
+## Features
 
-- [x] `/emoji` Switch and send an emoji
+- [x] Command `/emoji`: Switch and send an emoji
 
-## Install
+## Installation
 
-- Download .whl file and resources pack from [release](https://github.com/endstone-essentials/emoji/releases)
-- Put .whl file into `plugins` folder
-- Install resources pack into your server
+- Download plugin file (`.whl`) and resources pack (`.mcpack`)
+  from the [release page](https://github.com/endstone-essentials/emoji/releases)
+- Put `.whl` file into `plugins` folder
+- Put `.mcpack` file into `resource_packs` folder
 - Restart the server, enjoy!
 
 ## Requirement
