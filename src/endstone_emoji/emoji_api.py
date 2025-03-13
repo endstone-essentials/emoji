@@ -2,7 +2,6 @@ import json
 
 from endstone import Player
 from endstone.util import Vector
-from endstone.network import SpawnParticleEffectPacket
 
 
 class EmojiAPI:
@@ -60,12 +59,9 @@ class EmojiAPI:
 
         pos: list[float] = EmojiAPI.EMOJI_POS[emoji_id]
 
-        packet = SpawnParticleEffectPacket()
-        packet.dimension_id = int(player.dimension.type)
-        packet.actor_id = -1
-        packet.position = player.location + Vector(0, 2.5, 0)
-        packet.effect_name = "emoji:emoji"
-        packet.molang_variables_json = json.dumps(
+        position = player.location + Vector(0, 2.5, 0)
+        effect_name = "emoji:emoji"
+        molang_variables_json = json.dumps(
             [
                 {"name": "variable.ix", "value": {"type": "float", "value": pos[0]}},
                 {"name": "variable.iy", "value": {"type": "float", "value": pos[1]}},
@@ -75,7 +71,7 @@ class EmojiAPI:
         for online_player in player.server.online_players:
             if online_player.dimension.type != player.dimension.type:
                 return
-            online_player.send_packet(packet)
+            online_player.spawn_particle(effect_name, position.x, position.y, position.z, molang_variables_json)
 
     def get_phrase_emoji(self, text: str) -> str | None:
         text = text.lower()
